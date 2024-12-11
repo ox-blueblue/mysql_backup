@@ -12,7 +12,7 @@ config_manager.set('docker', 'host', '')
 config_manager.set('docker', 'name', '') 
 config_manager.set('ssh', 'user', '')
 config_manager.set('ssh', 'port', 22)
-config_manager.set('ssh', 'keypath', '')
+config_manager.set('ssh', 'passwd', '')
 config_manager.set('mysql', 'user', '')
 config_manager.set('mysql', 'passwd', '')
 config_manager.set('mysql', 'dbname', '')
@@ -80,7 +80,7 @@ def backup_database():
         log.error(f"An error occurred: {e}")
 
 # 设置每天执行一次备份
-schedule.every().day.at(BACKUP_TIME).do(backup_database)  # 每天凌晨2点执行
+schedule.every().day.at(BACKUP_TIME).do(backup_database) 
 
 if __name__ == "__main__":
     while True:
